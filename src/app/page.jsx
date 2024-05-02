@@ -1,9 +1,9 @@
-import { Header, MainHome } from './components/home'
+import { Navbar, MainHome } from './components/home'
 
 export default function Home() {
   return (
     <main>
-      <Header />
+      <Navbar />
       <MainHome />
     </main>
   )

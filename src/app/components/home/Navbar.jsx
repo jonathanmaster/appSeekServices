@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { IconMain } from '../Icons'
 
-export const Header = () => {
+export const Navbar = () => {
   return (
     <header>
       <nav className='mt-5 '>
@@ -17,7 +17,7 @@ export const Header = () => {
           <div className='flex gap-5 mr-[50px]'>
             <li>Servicios</li>
             <li>Crear tu servicio</li>
-            <li>Contactanos</li>
+            <li>Contáctanos</li>
           </div>
 
           <div>

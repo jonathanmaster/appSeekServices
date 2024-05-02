@@ -5,7 +5,7 @@ CREATE TABLE product(
   address VARCHAR(200) NOT NULL,
   service VARCHAR(200) NOT NULL,
   category VARCHAR(200) NOT NULL,
-  phoneNumber INT NOT NULL,
+  phoneNumber BIGINT NOT NULL,
   whatsapp_link VARCHAR(200) NOT NULL,
   facebook_link VARCHAR(200),
   instagram_link VARCHAR(200),
@@ -15,5 +15,6 @@ CREATE TABLE product(
   createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+ALTER TABLE product ADD COLUMN image VARCHAR(200) AFTER description;
 
 

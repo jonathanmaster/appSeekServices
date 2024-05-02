@@ -2,7 +2,15 @@ import { useState, useEffect, useMemo } from 'react'
 
 export function useInputDinamic() {
   const palabras = useMemo(
-    () => ['Lavadora', 'Taller de motos', 'Sastre', 'Albañil'],
+    () => [
+      'Lavadora',
+      'Taller de motos',
+      'Sastre',
+      'Albañil',
+      'Pintor',
+      'Regalos',
+      'Peluquería',
+    ],
     []
   )
   const [indicePalabra, setIndicePalabra] = useState(0)
@@ -15,7 +23,7 @@ export function useInputDinamic() {
         setIndiceLetra(0)
         setIndicePalabra((indiceActual) => (indiceActual + 1) % palabras.length)
       }
-    }, 200) // Cambia la letra cada 200 milisegundos
+    }, 300) // Cambia la letra cada 200 milisegundos
 
     return () => clearInterval(intervalo) // Limpia el intervalo cuando el componente se desmonta
   }, [indiceLetra, indicePalabra, palabras])
