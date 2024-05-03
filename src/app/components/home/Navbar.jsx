@@ -11,7 +11,7 @@ export const Navbar = () => {
               <span>
                 <IconMain />
               </span>
-              SeekService
+              HelpService
             </Link>
           </div>
           <div className='flex gap-5 mr-[50px]'>

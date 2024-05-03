@@ -1,26 +1,63 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
 
 const ProductCard = ({ prod }) => {
   return (
     <Link
-      href={`/servicios/${prod.id}`}
-      className='p-3 text-black bg-white hover:bg-gray-200'
+      href={`/dashboard/${prod.id}`}
+      className='text-black transition duration-500 ease-in-out transform group hover:scale-105'
     >
-      {prod.image && (
-        <img src={prod.image} alt={prod.name} className='w-full' />
-      )}
-      <h1>Nombre: {prod.newName}</h1>
-      <p>Descripción: {prod.description}</p>
-      <p>Dirección: {prod.address}</p>
-      <p>Servicio: {prod.services}</p>
-      <p>Categoría: {prod.category}</p>
-      <p>Celular: {prod.phoneNumber}</p>
-      <p>WhatsApp: {prod.whatsapp_link}</p>
-      <p>Facebook: {prod.facebook_link}</p>
-      <p>Instagram: {prod.instagram_link}</p>
-      <p>Años Experiencia: {prod.experienceYears} años</p>
-      <p>Días Servicio: {prod.availableDays}</p>
-      <p>Hora Servicio: {prod.availableHours}</p>
+      <div className='w-full h-full overflow-hidden bg-white rounded-lg aspect-h-1 aspect-w-1 xl:aspect-h-8 xl:aspect-w-7'>
+        {prod.image && (
+          <img
+            src={prod.image}
+            alt={prod.name}
+            className='object-cover object-center w-full rounded-t-lg h-44'
+          />
+        )}
+        <div className='p-2'>
+          <p>
+            <span className='font-bold'>Nombre:</span> {prod.newName}
+          </p>
+          <p>
+            <span className='font-bold'>Descripción:</span>
+            {prod.description}
+          </p>
+          <p>
+            <span className='font-bold'>Dirección:</span> {prod.address}
+          </p>
+          <p>
+            <span className='font-bold'>Servicio:</span> {prod.service}
+          </p>
+          <p>
+            <span className='font-bold'>Categoría:</span> {prod.category}
+          </p>
+          <p>
+            <span className='font-bold'>Celular:</span> {prod.phoneNumber}
+          </p>
+          <p>
+            <span className='font-bold'>WhatsApp:</span> {prod.whatsapp_link}
+          </p>
+          <p>
+            <span className='font-bold'>Facebook:</span> {prod.facebook_link}
+          </p>
+          <p>
+            <span className='font-bold'>Instagram:</span> {prod.instagram_link}
+          </p>
+          <p>
+            <span className='font-bold'>Años Experiencia:</span>
+            {prod.experienceYears} años
+          </p>
+          <p>
+            <span className='font-bold'>Días Servicio:</span>{' '}
+            {prod.availableDays}
+          </p>
+          <p>
+            <span className='font-bold'>Hora Servicio:</span>
+            {prod.availableHours}
+          </p>
+        </div>
+      </div>
     </Link>
   )
 }

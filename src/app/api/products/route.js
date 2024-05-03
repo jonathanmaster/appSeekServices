@@ -1,14 +1,7 @@
 import { conn } from '@/libs/mysql'
 import { NextResponse } from 'next/server'
-import { writeFile } from 'fs/promises'
-import { v2 as cloudinary } from 'cloudinary'
-import path from 'path'
-
-cloudinary.config({
-  cloud_name: 'dzvpk63tu',
-  api_key: '679478739618299',
-  api_secret: 'YNiyR031ZeMT50k71qgauK-AZxI',
-})
+import { processImage } from '@/libs/processImage'
+import cloudinary from '@/libs/cloudinary'
 
 export async function GET() {
   try {
@@ -44,15 +37,25 @@ export async function POST(request) {
       )
     }
 
-    //para convertir la imagen
-    const bytes = await image.arrayBuffer()
-    const buffer = Buffer.from(bytes)
+    const buffer = await processImage(image)
 
-    //para guardar en la carpeta public
-    const filePath = path.join(process.cwd(), 'public', image.name)
-    await writeFile(filePath, buffer)
+    const res = await new Promise((resolve, reject) => {
+      cloudinary.uploader
+        .upload_stream(
+          {
+            resource_type: 'image',
+          },
+          async (err, result) => {
+            if (err) {
+              console.log(err)
+              reject(err)
+            }
 
-    const res = await cloudinary.uploader.upload(filePath) // para subirlo y nos devuelve la respuesta
+            resolve(result)
+          }
+        )
+        .end(buffer)
+    })
 
     const result = await conn.query('INSERT INTO product SET ?', {
       newName: data.get('newName'),

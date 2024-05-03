@@ -5,7 +5,20 @@ import Image from 'next/image'
 import axios from 'axios'
 
 const ProductForm = () => {
-  const [product, setProduct] = useState({})
+  const [product, setProduct] = useState({
+    newName: '',
+    description: '',
+    address: '',
+    service: '',
+    category: '',
+    phoneNumber: '',
+    whatsapp_link: '',
+    facebook_link: '',
+    instagram_link: '',
+    experienceYears: 0,
+    availableDays: '',
+    availableHours: '',
+  })
   const [file, setFile] = useState(null)
   const form = useRef(null)
   const router = useRouter()
@@ -21,7 +34,20 @@ const ProductForm = () => {
   useEffect(() => {
     if (params.id) {
       axios.get(`/api/products/${params.id}`).then((res) => {
-        setProduct(res.data)
+        setProduct({
+          newName: res.data.newName,
+          description: res.data.description,
+          address: res.data.address,
+          service: res.data.service,
+          category: res.data.category,
+          phoneNumber: res.data.phoneNumber,
+          whatsapp_link: res.data.whatsapp_link,
+          facebook_link: res.data.facebook_link,
+          instagram_link: res.data.instagram_link,
+          experienceYears: res.data.experienceYears,
+          availableDays: res.data.availableDays,
+          availableHours: res.data.availableHours,
+        })
       })
     }
   }, [params.id])
@@ -29,44 +55,48 @@ const ProductForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    const formData = new FormData()
+    formData.append('newName', product.newName)
+    formData.append('description', product.description)
+    formData.append('address', product.address)
+    formData.append('service', product.service)
+    formData.append('category', product.category)
+    formData.append('phoneNumber', product.phoneNumber)
+    formData.append('whatsapp_link', product.whatsapp_link)
+    formData.append('facebook_link', product.facebook_link)
+    formData.append('instagram_link', product.instagram_link)
+    formData.append('experienceYears', product.experienceYears)
+    formData.append('availableDays', product.availableDays)
+    formData.append('availableHours', product.availableHours)
+
+    if (file) {
+      formData.append('image', file)
+    }
+
     if (!params.id) {
-      const formData = new FormData()
-      formData.append('newName', product.newName)
-      formData.append('description', product.description)
-      formData.append('address', product.address)
-      formData.append('service', product.service)
-      formData.append('category', product.category)
-      formData.append('phoneNumber', product.phoneNumber)
-      formData.append('whatsapp_link', product.whatsapp_link)
-      formData.append('facebook_link', product.facebook_link)
-      formData.append('instagram_link', product.instagram_link)
-      formData.append('experienceYears', product.experienceYears)
-      formData.append('availableDays', product.availableDays)
-      formData.append('availableHours', product.availableHours)
-
-      if (file) {
-        formData.append('image', file)
-      }
-
-      await axios.post('/api/products', formData, {
+      const res = await axios.post('/api/products', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       })
     } else {
-      console.log(product)
-      const res = await axios.put(`/api/products/${params.id}`, product)
-      console.log(res)
+      const res = await axios.put(`/api/products/${params.id}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
     }
 
     form.current.reset()
-    router.push('/servicios')
+    router.push('/dashboard')
     router.refresh()
   }
 
   return (
     <form className='w-full' onSubmit={handleSubmit} ref={form}>
-      <h1 className='mt-2 text-5xl text-center'>Registre su Servicio</h1>
+      <h1 className='mt-2 text-5xl text-center'>
+        {params.id ? 'Actualizar el Servicio' : 'Registre su Servicio'}
+      </h1>
       <section className='flex justify-center w-full gap-10 p-10 '>
         <div className='w-[500px]'>
           <label
@@ -282,12 +312,13 @@ const ProductForm = () => {
               height={500}
             />
           )}
+          {params.id && <img src={product.image} alt={product.newName} />}
         </div>
       </section>
 
       <div className='flex justify-center w-full mb-5'>
         <button className='px-6 py-3 font-medium text-center text-white transition duration-500 ease-in-out transform rounded-md bg-gradient-to-r from-green-600 to-black hover:scale-95'>
-          Enviar
+          {params.id ? 'Actualizar Producto' : 'Crear Producto'}
         </button>
       </div>
     </form>
