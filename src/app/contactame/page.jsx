@@ -30,10 +30,10 @@ export default function Example() {
       <div className='px-6 py-10'>
         <div className='max-w-2xl mx-auto text-center'>
           <h2 className='text-3xl font-bold tracking-tight sm:text-4xl'>
-            Contact sales
+            Contáctame
           </h2>
           <p className='mt-2 text-lg leading-8 '>
-            Aute magna irure deserunt veniam aliqua magna enim voluptate.
+            ¿Tienes alguna pregunta? Estamos aquí para ayudarte.
           </p>
         </div>
         <form action='#' method='POST' className='max-w-xl mx-auto mt-10'>
@@ -43,13 +43,14 @@ export default function Example() {
                 htmlFor='first-name'
                 className='block text-sm font-semibold leading-6 '
               >
-                First name
+                Nombres
               </label>
               <div className='mt-2.5'>
                 <input
                   type='text'
                   name='first-name'
                   id='first-name'
+                  placeholder='HelpService'
                   className='block w-full rounded-md border-0 px-3.5 py-2  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                 />
               </div>
@@ -59,13 +60,14 @@ export default function Example() {
                 htmlFor='last-name'
                 className='block text-sm font-semibold leading-6 '
               >
-                Last name
+                Apellidos
               </label>
               <div className='mt-2.5'>
                 <input
                   type='text'
                   name='last-name'
                   id='last-name'
+                  placeholder='HelpService'
                   className='block w-full rounded-md border-0 px-3.5 py-2  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                 />
               </div>
@@ -76,13 +78,14 @@ export default function Example() {
                 htmlFor='email'
                 className='block text-sm font-semibold leading-6 '
               >
-                Email
+                Correo
               </label>
               <div className='mt-2.5'>
                 <input
                   type='email'
                   name='email'
                   id='email'
+                  placeholder='helpservice@gmail.com'
                   className='block w-full rounded-md border-0 px-3.5 py-2  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                 />
               </div>
@@ -93,15 +96,15 @@ export default function Example() {
                 htmlFor='message'
                 className='block text-sm font-semibold leading-6 '
               >
-                Message
+                Mensaje
               </label>
               <div className='mt-2.5'>
                 <textarea
                   name='message'
                   id='message'
+                  placeholder='Comparte tus ideas y comentarios con nosotros'
                   rows={4}
                   className='block w-full rounded-md border-0 px-3.5 py-2  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                  defaultValue={''}
                 />
               </div>
             </div>
@@ -125,13 +128,16 @@ export default function Example() {
                   />
                 </Switch>
               </div>
-              <Switch.Label className='text-sm leading-6 text-gray-600'>
-                By selecting this, you agree to our{' '}
-                <a href='#' className='font-semibold text-indigo-600'>
-                  privacy&nbsp;policy
-                </a>
-                .
+              <Switch.Label className='text-sm leading-6 text-gray-300'>
+                Al seleccionar esta opción, acepta nuestra
               </Switch.Label>
+              <a
+                target='_blank'
+                href='https://www.mintic.gov.co/portal/inicio/Secciones-auxiliares/Politicas/2627:Politicas-de-Privacidad-y-Condiciones-de-Uso'
+                className='font-semibold text-indigo-600'
+              >
+                política de privacidad.
+              </a>
             </Switch.Group>
           </div>
           <div className='mt-10'>
