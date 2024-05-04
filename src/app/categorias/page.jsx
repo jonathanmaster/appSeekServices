@@ -7,26 +7,32 @@ const page = () => {
     {
       nombre: 'Electrodomésticos Y Tecnología',
       imagen: '/portfolio/electrodomesticos.webp',
+      url: '/categorias/electrodomesticos',
     },
     {
       nombre: 'Hogar',
       imagen: '/portfolio/hogar-4.webp',
+      url: '/categorias/hogar',
     },
     {
       nombre: 'Decoraciones Y Arreglos',
       imagen: '/portfolio/decoraciones-2.webp',
+      url: '/categorias/decoraciones',
     },
     {
       nombre: 'Sastre Y Calzado',
       imagen: '/portfolio/sastreyclazado.webp',
+      url: '/categorias/sastre',
     },
     {
       nombre: 'Taller Mecánico',
       imagen: '/portfolio/taller-mecanico.webp',
+      url: '/categorias/talleres',
     },
     {
       nombre: 'Otros',
       imagen: '/portfolio/otros-2.webp',
+      url: '/categorias/otros',
     },
   ]
 
@@ -49,7 +55,7 @@ const page = () => {
       <div className='grid grid-cols-3 gap-4 p-10'>
         {categorias.map((categoria) => (
           <Link
-            href={'/'}
+            href={categoria.url}
             key={categoria.nombre}
             className='relative transition duration-500 ease-in-out transform border-2 border-transparent hover:border-green-500 group hover:scale-95 hover:rounded-lg'
           >

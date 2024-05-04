@@ -10,7 +10,7 @@ const ProductForm = () => {
     description: '',
     address: '',
     service: '',
-    category: '',
+    category: 'electrodomesticos',
     phoneNumber: '',
     whatsapp_link: '',
     facebook_link: '',
@@ -172,7 +172,9 @@ const ProductForm = () => {
             onChange={handleChange}
             value={product.category}
           >
-            <option value='electrodomesticos'>Electrodomésticos</option>
+            <option value='electrodomesticos'>
+              Electrodomésticos y Tecnología
+            </option>
             <option value='hogar'>Hogar</option>
             <option value='decoraciones'>Decoraciones y Arreglos</option>
             <option value='sastre'>Sastre y Calzado</option>
