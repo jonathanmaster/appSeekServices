@@ -1,7 +1,7 @@
-import { conn } from '@/libs/mysql'
+import { conn } from '../../../libs/mysql'
 import { NextResponse } from 'next/server'
-import { processImage } from '@/libs/processImage'
-import cloudinary from '@/libs/cloudinary'
+import { processImage } from '../../../libs/processImage'
+import cloudinary from '../../../libs/cloudinary'
 
 export async function GET() {
   try {

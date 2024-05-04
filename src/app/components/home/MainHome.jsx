@@ -1,5 +1,6 @@
 'use client'
-import { useInputDinamic } from '@/hooks/inputDinamico'
+
+import { useInputDinamic } from '../../hooks/inputDinamico'
 import { Loupe } from '../Icons'
 
 export const MainHome = () => {

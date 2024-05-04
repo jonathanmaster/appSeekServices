@@ -1,3 +1,5 @@
+import { ClerkProvider } from '@clerk/nextjs'
+import { dark } from '@clerk/themes'
 import { Raleway } from 'next/font/google'
 import './globals.css'
 
@@ -10,8 +12,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='es'>
-      <body className={inter.className}>{children}</body>
-    </html>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+    >
+      <html lang='es'>
+        <body className={inter.className}>{children}</body>
+      </html>
+    </ClerkProvider>
   )
 }

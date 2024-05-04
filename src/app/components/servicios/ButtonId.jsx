@@ -7,9 +7,9 @@ const ButtonId = ({ productId }) => {
   const router = useRouter()
 
   return (
-    <div className='flex gap-5'>
+    <div className='flex gap-5 text-white'>
       <button
-        className='block w-full px-6 py-3 font-medium text-center text-white transition duration-500 ease-in-out transform rounded-md bg-gradient-to-r from-green-600 to-black hover:scale-95 '
+        className='block w-full px-6 py-3 text-xl font-medium text-center transition duration-500 ease-in-out transform rounded-md bg-green-950 hover:scale-95'
         onClick={() => {
           router.push(`/dashboard/edit/${productId}`)
         }}
@@ -26,7 +26,7 @@ const ButtonId = ({ productId }) => {
             }
           }
         }}
-        className='block w-full px-6 py-3 font-medium text-center text-white transition duration-500 ease-in-out transform rounded-md bg-gradient-to-r from-red-600 to-black hover:scale-95 '
+        className='block w-full px-6 py-3 text-xl font-medium text-center transition duration-500 ease-in-out transform bg-black rounded-md hover:scale-95 '
       >
         Borrar
       </button>

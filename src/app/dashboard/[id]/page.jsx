@@ -1,6 +1,8 @@
-import ButtonId from '@/app/components/servicios/ButtonId'
-import NavbarDash from '@/app/components/servicios/NavbarDash'
-import { loadProductId } from '@/helpers/loadProductId'
+/* eslint-disable @next/next/no-img-element */
+// import ButtonId from '../app/components/servicios/ButtonId'
+import ButtonId from '../../components/servicios/ButtonId'
+import NavbarDash from '../../components/servicios/NavbarDash'
+import { loadProductId } from '../../../helpers/loadProductId'
 
 const page = async ({ params }) => {
   const product = await loadProductId(params.id)
@@ -8,13 +10,14 @@ const page = async ({ params }) => {
   return (
     <section>
       <NavbarDash />
-      <div className='flex items-center justify-center mt-[100px]'>
-        <div className=' p-6 overflow-hidden bg-white rounded-lg shadow-lg bg-opacity-10 w-[800px]'>
-          <ul className='mb-8 text-2xl'>
+      <div className='flex items-center  mx-auto mt-[80px] mb-2 bg-[#bebe56] w-[1100px] h-[500px] '>
+        <div className='text-xs pt-14 px-2 overflow-hidden text-black rounded-lg shadow-lg bg-opacity-10 w-[1000px] '>
+          <ul className='text-2xl mb-14'>
             <li>
               <span className='font-bold'>Nombre: </span>
               {product.newName}
             </li>
+
             <li>
               <span className='font-bold'>Descripción: </span>
               {product.description}
@@ -62,6 +65,13 @@ const page = async ({ params }) => {
           </ul>
 
           <ButtonId productId={product.id} />
+        </div>
+        <div className='w-[500px] p-2'>
+          <img
+            src={product.image}
+            alt={product.newName}
+            className='object-cover object-center w-[369px] h-[384]'
+          />
         </div>
       </div>
     </section>
