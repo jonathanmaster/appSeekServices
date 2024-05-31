@@ -14,7 +14,7 @@ pnpm dev
 bun dev
 ```
 
-IMPORTANTE CREAR EL ARCHIVO .env.local con la key de clerk para que funcione [text](https://dashboard.clerk.com/apps/app_2fy0J7OeQjMCSmhOKBHs8O8lkBG/instances/ins_2fy0J6dXAmJotmGYqhv97FJu9Q2/api-keys)
+IMPORTANTE CREAR EL ARCHIVO .env.local con la key de clerk para que funcione [documentación](https://dashboard.clerk.com/apps/app_2fy0J7OeQjMCSmhOKBHs8O8lkBG/instances/ins_2fy0J6dXAmJotmGYqhv97FJu9Q2/api-keys)
 
 - Tambien se utiliza: [serveless-mysql](https://www.npmjs.com/package/serverless-mysql)
   important for it to work correctly when uploading the project to vercel
